@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Jhon Michael Regaspi's personal portfolio, projects, and contact information."
+  />
+
+  <title>JHON MICHAEL REGASPI</title>
+
+  <style>
+    :root {
+      --green: #167347;
+      --green-dark: #0d5131;
+      --green-light: #eaf6ee;
+      --white: #ffffff;
+      --background: #f8fcf9;
+      --text: #183b29;
+      --muted: #52685b;
+      --border: #d7e7dc;
+      --shadow: 0 12px 35px rgba(22, 115, 71, 0.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--green);
+      outline-offset: 5px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px 100px 20px 30px;
+    }
+
+    .logo {
+      color: var(--green);
+      font-weight: 800;
+      font-size: clamp(0.95rem, 3vw, 1.3rem);
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+
+    /* Right-side navigation */
+    .side-nav {
+      position: fixed;
+      right: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 14px 10px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-icon {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--green);
+      background: var(--green-light);
+      text-decoration: none;
+      transition:
+        background 0.2s,
+        color 0.2s,
+        transform 0.2s;
+    }
+
+    .nav-icon svg {
+      width: 23px;
+      height: 23px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .nav-icon:hover,
+    .nav-icon.active {
+      background: var(--green);
+      color: var(--white);
+      transform: scale(1.06);
+    }
+
+    .nav-label {
+      position: absolute;
+      right: 62px;
+      padding: 6px 12px;
+      color: var(--white);
+      background: var(--green-dark);
+      border-radius: 7px;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-icon:hover .nav-label,
+    .nav-icon:focus-visible .nav-label {
+      opacity: 1;
+    }
+
+    /* General layout */
+    main {
+      padding-right: 95px;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 90px 30px;
+    }
+
+    .section-title {
+      color: var(--green);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 35px;
+    }
+
+    /* Home */
+    #home {
+      min-height: calc(100svh - 77px);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .hero-text {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.3rem, 5vw, 4.5rem);
+      line-height: 1.12;
+      margin-bottom: 20px;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-text h1 span {
+      color: var(--green);
+    }
+
+    .hero-text h2 {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero-text p:not(.eyebrow) {
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      border: 2px solid var(--green);
+      border-radius: 30px;
+      background: var(--green);
+      color: var(--white);
+      font: inherit;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--green);
+    }
+
+    .btn-outline:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    /* Profile picture without a frame */
+    .profile-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .profile-picture {
+      display: block;
+      width: min(100%, 160px);
+      height: auto;
+      border: none;
+      border-radius: 0;
+      outline: none;
+      background: transparent;
+      box-shadow: none;
+      transform: scale(4);
+      transform-origin: center;
+    }
+
+    /* About and contact layouts */
+    .about-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .panel,
+    .card,
+    form {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      min-width: 0;
+    }
+
+    .panel h3,
+    .card h3 {
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .panel p,
+    .card p {
+      color: var(--muted);
+    }
+
+    .panel p + p {
+      margin-top: 12px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .skill {
+      padding: 7px 14px;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 0.9rem;
+    }
+
+    /* Project and certificate cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--green);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .detail-card {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      font: inherit;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .detail-card h3 {
+      font-size: 1.2rem;
+    }
+
+    .detail-card p {
+      margin-bottom: 20px;
+    }
+
+    .card-action {
+      margin-top: auto;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .detail-card:hover .card-action {
+      text-decoration: underline;
+    }
+
+    /* Contact */
+    .contact-info p {
+      margin-bottom: 15px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-info a {
+      color: var(--green);
+    }
+
+    form {
+      display: grid;
+      gap: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--background);
+      color: var(--text);
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .form-note,
+    #formStatus {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Detail window */
+    .detail-dialog {
+      position: fixed;
+      inset: 0;
+      width: min(720px, calc(100% - 32px));
+      max-height: 85vh;
+      max-height: 85dvh;
+      margin: auto;
+      padding: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--white);
+      color: var(--text);
+      box-shadow: 0 25px 80px rgba(13, 81, 49, 0.25);
+    }
+
+    .detail-dialog::backdrop {
+      background: rgba(8, 35, 21, 0.65);
+      backdrop-filter: blur(5px);
+    }
+
+    .detail-shell {
+      position: relative;
+      padding: 40px;
+    }
+
+    .dialog-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .dialog-close:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .detail-title {
+      padding-right: 30px;
+      margin-bottom: 12px;
+      color: var(--green);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      line-height: 1.25;
+    }
+
+    .detail-intro {
+      margin-bottom: 25px;
+      color: var(--muted);
+    }
+
+    .detail-block {
+      margin-top: 18px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--background);
+    }
+
+    .detail-block h3 {
+      margin-bottom: 8px;
+      color: var(--green-dark);
+      font-size: 1rem;
+    }
+
+    .detail-block p,
+    .detail-block li {
+      color: var(--muted);
+    }
+
+    .detail-block ul {
+      padding-left: 20px;
+    }
+
+    .detail-block li + li {
+      margin-top: 7px;
+    }
+
+    .detail-note {
+      margin: 20px 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    #detailLink[hidden] {
+      display: none;
+    }
+
+    body.dialog-open {
+      overflow: hidden;
+    }
+
+    footer {
+      padding: 25px 100px 25px 25px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      background: var(--white);
+      color: var(--muted);
+    }
+
+    /* Tablet and mobile */
+    @media (max-width: 800px) {
+      #home {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+        padding-top: 55px;
+      }
+
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .profile-picture {
+        width: min(100%, 290px);
+      }
+
+      .about-grid,
+      .contact-grid,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-inner {
+        padding: 18px 75px 18px 18px;
+      }
+
+      main {
+        padding-right: 70px;
+      }
+
+      section {
+        padding: 65px 18px;
+      }
+
+      .side-nav {
+        right: 8px;
+        padding: 10px 6px;
+        gap: 12px;
+      }
+
+      .nav-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .nav-label {
+        right: 50px;
+      }
+
+      .panel,
+      .card,
+      form {
+        padding: 20px;
+      }
+
+      .detail-shell {
+        padding: 55px 20px 25px;
+      }
+
+      .detail-block {
+        padding: 16px;
+      }
+
+      footer {
+        padding-right: 75px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="#home" class="logo">JHON MICHAEL REGASPI</a>
+    </div>
+  </header>
+
+  <!-- Four navigation icons on the right -->
+  <nav class="side-nav" aria-label="Main navigation">
+    <a
+      href="#home"
+      class="nav-icon active"
+      aria-label="Home"
+      aria-current="location"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"
+        />
+      </svg>
+      <span class="nav-label">Home</span>
+    </a>
+
+    <a href="#about" class="nav-icon" aria-label="About me">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="8" r="4" />
+        <path d="M4 21v-2a8 8 0 0 1 16 0v2" />
+      </svg>
+      <span class="nav-label">About Me</span>
+    </a>
+
+    <a
+      href="#projects"
+      class="nav-icon"
+      aria-label="Projects and certificates"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="7" width="18" height="14" rx="2" />
+        <path
+          d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v3h4v-3"
+        />
+      </svg>
+      <span class="nav-label">Projects &amp; Certificates</span>
+    </a>
+
+    <a href="#contact" class="nav-icon" aria-label="Contact">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 6 9 7 9-7" />
+      </svg>
+      <span class="nav-label">Contact</span>
+    </a>
+  </nav>
+
+  <main>
+    <!-- Home -->
+    <section id="home" aria-labelledby="home-title">
+      <div class="hero-text">
+        <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
+
+        <h1 id="home-title">
+          Hi, I’m<br />
+          <span>Jhon Michael Regaspi</span>
+        </h1>
+
+        <h2>Web Developer &amp; Designer</h2>
+
+        <p>
+          I build clean, responsive, and user-friendly websites.
+          Explore my projects, discover my skills, and get in touch.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+
+      <!-- Profile picture without a frame -->
+      <div class="profile-area">
+        <img
+          class="profile-picture"
+          src="https://scontent-mnl1-1.xx.fbcdn.net/v/t1.15752-9/893020486_2230972594129946_4987851107272427151_n.png?stp=dst-png_p480x480&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFoPjL-tXFfGLZSoyuvFDvqFfri4eaT9MYV-uLh5pP0xhRnYYQqoKXBVGdMPkd6uqGfy7alcSxq1_ZVZ-2vl0M2&_nc_ohc=nhNk36ejODMQ7kNvwGvOADv&_nc_oc=AdoQ8xAe7Xk1vt05Ap476nYZgScPC-LRo-lTG_1ym46mTQJnkORUx_CtjCqI_kz1fAA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mnl1-1.xx&_nc_ss=7a22e&oh=03_Q7cD6wFfBUfBu2soc9E_Plk3cflMoJ5kARX5Mv6HnhvIZROISA&oe=6B17166F"
+          alt="Profile photo of Jhon Michael Regaspi"
+        />
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" aria-labelledby="about-title">
+      <h2 class="section-title" id="about-title">About Me</h2>
+
+      <p class="section-subtitle">
+        A little introduction to my interests and the tools I use.
+      </p>
+
+      <div class="about-grid">
+        <div class="panel">
+          <h3>Who I Am</h3>
+
+          <p>
+            I’m Jhon Michael Regaspi, based in Bacoor, Cavite,
+            Philippines. I enjoy creating websites and turning
+            ideas into useful digital experiences.
+          </p>
+
+          <p>
+            I’m continuously learning and exploring ways to improve
+            my design and development skills.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>My Skills</h3>
+          <p>Technologies and tools featured in my portfolio:</p>
+
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Responsive Design</span>
+            <span class="skill">Git &amp; GitHub</span>
+            <span class="skill">UI/UX Basics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects and certificates -->
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 class="section-title" id="projects-title">
+        Projects &amp; Certificates
+      </h2>
+
+      <p class="section-subtitle">
+        Select a card to explore the project or learn more about a
+        certificate. Placeholder entries can be replaced with my
+        actual work and achievements.
+      </p>
+
+      <div class="cards">
+        <button
+          type="button"
+          class="card detail-card"
+          data-detail="portfolio"
+          aria-haspopup="dialog"
+          aria-controls="detailDialog"
+        >
+          <span class="tag">Project</span>
+          <h3>Personal Portfolio</h3>
+          <p>
+            My personal website featuring a green-and-white design,
+            profile picture, and right-side navigation.
+          </p>
+          <span class="card-action">Explore project &rarr;</span>
+        </button>
+
+        <button
+          type="button"
+          class="card detail-card"
+          data-detail="landing"
+          aria-haspopup="dialog"
+          aria-controls="detailDialog"
+        >
+          <span class="tag">Project placeholder</span>
+          <h3>Responsive Landing Page</h3>
+          <p>
+            A space to showcase a landing-page project and explain
+            its purpose, design, and development.
+          </p>
+          <span class="card-action">Explore project &rarr;</span>
+        </button>
+
+        <button
+          type="button"
+          class="card detail-card"
+          data-detail="webCertificate"
+          aria-haspopup="dialog"
+          aria-controls="detailDialog"
+        >
+          <span class="tag">Certificate placeholder</span>
+          <h3>Web Development</h3>
+          <p>
+            A dedicated space for a web development certificate,
+            course details, and learning outcomes.
+          </p>
+          <span class="card-action">View details &rarr;</span>
+        </button>
+
+        <button
+          type="button"
+          class="card detail-card"
+          data-detail="designCertificate"
+          aria-haspopup="dialog"
+          aria-controls="detailDialog"
+        >
+          <span class="tag">Certificate placeholder</span>
+          <h3>Design &amp; Technology</h3>
+          <p>
+            A dedicated space for a design certificate and the
+            skills covered during the course.
+          </p>
+          <span class="card-action">View details &rarr;</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Contact Me</h2>
+
+      <p class="section-subtitle">
+        Have a project in mind or want to connect? Get in touch.
+      </p>
+
+      <div class="contact-grid">
+        <div class="panel contact-info">
+          <h3>Contact Information</h3>
+
+          <!-- Replace these placeholders before publishing. -->
+          <p>
+            Email:
+            <a href="mailto:you@example.com">you@example.com</a>
+          </p>
+          <p>Phone: Add your phone number</p>
+          <p>Location: Bacoor, Cavite, Philippines</p>
+          <p>GitHub: Add your GitHub profile</p>
+          <p>LinkedIn: Add your LinkedIn profile</p>
+        </div>
+
+        <form id="contactForm">
+          <p class="form-note">
+            Demo form only. Messages are not sent or stored.
+          </p>
+
+          <div>
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              autocomplete="name"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Write your message..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn">Preview Message</button>
+
+          <p id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      &copy; <span id="year"></span> JHON MICHAEL REGASPI.
+      All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Each card opens this window with its own content. -->
+  <dialog
+    id="detailDialog"
+    class="detail-dialog"
+    aria-labelledby="detailTitle"
+  >
+    <div class="detail-shell">
+      <button
+        type="button"
+        class="dialog-close"
+        id="closeDetail"
+        aria-label="Close details"
+        autofocus
+      >
+        &times;
+      </button>
+
+      <span class="tag" id="detailCategory"></span>
+      <h2 id="detailTitle" class="detail-title"></h2>
+      <p id="detailIntro" class="detail-intro"></p>
+
+      <div class="detail-block">
+        <h3>Overview</h3>
+        <p id="detailOverview"></p>
+      </div>
+
+      <div class="detail-block">
+        <h3 id="detailListHeading"></h3>
+        <ul id="detailList"></ul>
+      </div>
+
+      <div class="detail-block">
+        <h3 id="detailMetaHeading"></h3>
+        <p id="detailMeta"></p>
+      </div>
+
+      <p class="detail-note" id="detailNote"></p>
+
+      <a
+        id="detailLink"
+        class="btn"
+        target="_blank"
+        rel="noopener noreferrer"
+        hidden
+      >
+        Open resource
+      </a>
+    </div>
+  </dialog>
+
+  <script>
+    // Highlight the current section in the right-side navigation.
+    const sections = document.querySelectorAll("main section[id]");
+    const navLinks = document.querySelectorAll(".side-nav a");
+    let updatePending = false;
+
+    function updateActiveLink() {
+      const marker = window.scrollY + window.innerHeight * 0.35;
+      let current = sections[0].id;
+
+      sections.forEach((section) => {
+        if (section.offsetTop <= marker) {
+          current = section.id;
+        }
+      });
+
+      if (
+        window.scrollY + window.innerHeight >=
+        document.documentElement.scrollHeight - 5
+      ) {
+        current = sections[sections.length - 1].id;
+      }
+
+      navLinks.forEach((link) => {
+        const active = link.getAttribute("href") === "#" + current;
+        link.classList.toggle("active", active);
+
+        if (active) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+
+      updatePending = false;
+    }
+
+    function scheduleUpdate() {
+      if (!updatePending) {
+        updatePending = true;
+        requestAnimationFrame(updateActiveLink);
+      }
+    }
+
+    window.addEventListener("scroll", scheduleUpdate, {
+      passive: true
+    });
+
+    window.addEventListener("resize", scheduleUpdate);
+    window.addEventListener("load", updateActiveLink);
+    updateActiveLink();
+
+    // Demo contact form: no message is sent or stored.
+    document
+      .getElementById("contactForm")
+      .addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        document.getElementById("formStatus").textContent =
+          "Your form is complete. This demo does not send or store messages.";
+      });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Edit each entry to customize its detail window.
+    // Add a real project or certificate link to its url field.
+    const detailContent = {
+      portfolio: {
+        category: "Project",
+        title: "Personal Portfolio Website",
+        intro:
+          "A personal space to introduce myself, present my work, and share contact information.",
+        overview:
+          "This portfolio uses a green-and-white theme with a frameless profile picture and four navigation icons on the right. Visitors can explore the home, about, projects, and contact sections.",
+        listHeading: "Features",
+        items: [
+          "Responsive layouts for smaller and larger screens.",
+          "A frameless profile picture on the home page.",
+          "Right-side navigation with active-section highlighting.",
+          "Clickable project and certificate cards with additional context.",
+          "A contact-form layout that is currently a demo."
+        ],
+        metaHeading: "Technologies used",
+        meta: "HTML, CSS, and JavaScript.",
+        note:
+          "Add a published website or repository URL when it is ready.",
+        url: "",
+        linkLabel: "View live portfolio"
+      },
+
+      landing: {
+        category: "Project placeholder",
+        title: "Responsive Landing Page",
+        intro:
+          "Replace this example with a landing-page project you have actually created.",
+        overview:
+          "Describe who the page was designed for, what problem it solves, and the action you want visitors to take. Explain your role in designing and building the page.",
+        listHeading: "Details to include",
+        items: [
+          "The purpose and intended audience of the website.",
+          "The main sections and features you built.",
+          "How you adapted the layout for mobile screens.",
+          "A design or coding challenge and how you solved it."
+        ],
+        metaHeading: "Tools and technologies",
+        meta:
+          "Replace this text with the languages, frameworks, and design tools you used.",
+        note:
+          "This is an example entry, not a claim of completed work. Add your actual project details.",
+        url: "",
+        linkLabel: "View project"
+      },
+
+      webCertificate: {
+        category: "Certificate placeholder",
+        title: "Web Development Certificate",
+        intro:
+          "Use this space to provide context for a web development certificate you have earned.",
+        overview:
+          "Add the exact course title and explain what the training covered. Describe how you applied the lessons in exercises or projects.",
+        listHeading: "Learning outcomes to describe",
+        items: [
+          "The course or training provider and completion date.",
+          "The main web development topics covered.",
+          "Projects, exercises, or skills you practiced.",
+          "How the certificate supports your current abilities."
+        ],
+        metaHeading: "Certificate details",
+        meta:
+          "Add the issuing organization, course title, completion date, and credential ID if available.",
+        note:
+          "This is an example entry, not a claim of completed work. Add your actual certificate details.",
+        url: "",
+        linkLabel: "View certificate"
+      },
+
+      designCertificate: {
+        category: "Certificate placeholder",
+        title: "Design & Technology Certificate",
+        intro:
+          "Use this space to provide context for a design or technology certificate you have earned.",
+        overview:
+          "Add the exact course title and explain the design concepts, tools, or technologies covered during the training.",
+        listHeading: "Learning outcomes to describe",
+        items: [
+          "The course or training provider and completion date.",
+          "The design tools or technologies you learned.",
+          "The design principles or technical skills covered.",
+          "How you applied what you learned in a project."
+        ],
+        metaHeading: "Certificate details",
+        meta:
+          "Add the issuing organization, course title, completion date, and credential ID if available.",
+        note:
+          "This is an example entry, not a claim of completed work. Add your actual certificate details.",
+        url: "",
+        linkLabel: "View certificate"
+      }
+    };
+
+    const dialog = document.getElementById("detailDialog");
+    const detailCategory = document.getElementById("detailCategory");
+    const detailTitle = document.getElementById("detailTitle");
+    const detailIntro = document.getElementById("detailIntro");
+    const detailOverview = document.getElementById("detailOverview");
+    const detailListHeading = document.getElementById("detailListHeading");
+    const detailList = document.getElementById("detailList");
+    const detailMetaHeading = document.getElementById("detailMetaHeading");
+    const detailMeta = document.getElementById("detailMeta");
+    const detailNote = document.getElementById("detailNote");
+    const detailLink = document.getElementById("detailLink");
+    const closeDetail = document.getElementById("closeDetail");
+
+    function openDetail(key) {
+      const content = detailContent[key];
+
+      if (!content) {
+        return;
+      }
+
+      detailCategory.textContent = content.category;
+      detailTitle.textContent = content.title;
+      detailIntro.textContent = content.intro;
+      detailOverview.textContent = content.overview;
+
+      detailListHeading.textContent = content.listHeading;
+      detailList.innerHTML = "";
+
+      content.items.forEach((item) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = item;
+        detailList.appendChild(listItem);
+      });
+
+      detailMetaHeading.textContent = content.metaHeading;
+      detailMeta.textContent = content.meta;
+      detailNote.textContent = content.note;
+
+      if (content.url) {
+        detailLink.href = content.url;
+        detailLink.textContent = content.linkLabel;
+        detailLink.hidden = false;
+      } else {
+        detailLink.hidden = true;
+      }
+
+      dialog.showModal();
+      document.body.classList.add("dialog-open");
+    }
+
+    document.querySelectorAll(".detail-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        openDetail(card.dataset.detail);
+      });
+    });
+
+    closeDetail.addEventListener("click", () => {
+      dialog.close();
+    });
+
+    dialog.addEventListener("close", () => {
+      document.body.classList.remove("dialog-open");
+    });
+
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) {
+        dialog.close();
+      }
+    });
+  </script>
+</body>
+</html>

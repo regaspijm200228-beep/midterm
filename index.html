@@ -5,22 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Jhon Michael Regaspi's personal portfolio, projects, and contact information."
+    content="Portfolio of Jhon Michael Regaspi, a Computer Science student, working student, and aspiring web developer."
   />
 
   <title>JHON MICHAEL REGASPI</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
     :root {
-      --green: #167347;
-      --green-dark: #0d5131;
-      --green-light: #eaf6ee;
+      --green: #0f7a3d;
+      --green-dark: #075a2b;
+      --green-deep: #043a1c;
+      --green-light: #e7f6ec;
+      --green-softer: #f2faf4;
       --white: #ffffff;
-      --background: #f8fcf9;
-      --text: #183b29;
-      --muted: #52685b;
-      --border: #d7e7dc;
-      --shadow: 0 12px 35px rgba(22, 115, 71, 0.09);
+      --background: #f4fbf6;
+      --text: #123524;
+      --muted: #4d6a58;
+      --border: #cbe3d3;
+      --shadow: 0 14px 38px rgba(10, 90, 45, 0.12);
     }
 
     * {
@@ -31,11 +40,11 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
+      scroll-padding-top: 120px;
     }
 
     body {
-      font-family: "Segoe UI", Arial, sans-serif;
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
       background: var(--background);
       color: var(--text);
       line-height: 1.7;
@@ -50,30 +59,62 @@
     input:focus-visible,
     textarea:focus-visible {
       outline: 3px solid var(--green);
-      outline-offset: 5px;
+      outline-offset: 4px;
     }
 
-    /* Header */
+    /* Header and top navigation */
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.96);
       border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(10, 90, 45, 0.06);
     }
 
     .header-inner {
       max-width: 1200px;
       margin: auto;
-      padding: 20px 100px 20px 30px;
+      padding: 16px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .logo {
       color: var(--green);
       font-weight: 800;
-      font-size: clamp(0.95rem, 3vw, 1.3rem);
-      letter-spacing: 1px;
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      letter-spacing: 0.5px;
       text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .top-link {
+      padding: 9px 18px;
+      border: 2px solid var(--green);
+      border-radius: 30px;
+      background: var(--green);
+      color: var(--white);
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .top-link:hover,
+    .top-link.active {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      transform: translateY(-2px);
     }
 
     /* Right-side navigation */
@@ -165,21 +206,40 @@
 
     .section-subtitle {
       color: var(--muted);
-      max-width: 650px;
+      max-width: 700px;
       margin-bottom: 35px;
     }
 
     /* Home */
     #home {
-      min-height: calc(100svh - 77px);
+      min-height: calc(100svh - 90px);
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 0.85fr 1.15fr;
       align-items: center;
       gap: 45px;
     }
 
+    .profile-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 0;
+      order: 1;
+    }
+
+    .profile-picture {
+      display: block;
+      width: min(100%, 240px);
+      height: auto;
+      border: 8px solid var(--white);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
     .hero-text {
       min-width: 0;
+      text-align: center;
+      order: 2;
     }
 
     .eyebrow {
@@ -187,12 +247,13 @@
       font-weight: 700;
       letter-spacing: 3px;
       margin-bottom: 14px;
+      font-size: 0.85rem;
     }
 
     .hero-text h1 {
-      font-size: clamp(2.3rem, 5vw, 4.5rem);
-      line-height: 1.12;
-      margin-bottom: 20px;
+      font-size: clamp(2.1rem, 5vw, 3.7rem);
+      line-height: 1.15;
+      margin-bottom: 18px;
       overflow-wrap: anywhere;
     }
 
@@ -201,20 +262,22 @@
     }
 
     .hero-text h2 {
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-size: clamp(1.05rem, 2.5vw, 1.4rem);
       font-weight: 600;
+      color: var(--green-dark);
       margin-bottom: 18px;
     }
 
-    .hero-text p:not(.eyebrow) {
+    .hero-text p {
       color: var(--muted);
-      max-width: 540px;
-      margin-bottom: 28px;
+      max-width: 620px;
+      margin: 0 auto 28px;
     }
 
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 12px;
     }
 
@@ -246,27 +309,6 @@
     .btn-outline:hover {
       background: var(--green);
       color: var(--white);
-    }
-
-    /* Profile picture without a frame */
-    .profile-area {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-width: 0;
-    }
-
-    .profile-picture {
-      display: block;
-      width: min(100%, 160px);
-      height: auto;
-      border: none;
-      border-radius: 0;
-      outline: none;
-      background: transparent;
-      box-shadow: none;
-      transform: scale(4);
-      transform-origin: center;
     }
 
     /* About and contact layouts */
@@ -317,6 +359,7 @@
       background: var(--green-light);
       color: var(--green-dark);
       font-size: 0.9rem;
+      font-weight: 500;
     }
 
     /* Project and certificate cards */
@@ -383,6 +426,12 @@
 
     .contact-info a {
       color: var(--green);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
     }
 
     form {
@@ -402,7 +451,7 @@
       padding: 12px 14px;
       border: 1px solid var(--border);
       border-radius: 10px;
-      background: var(--background);
+      background: var(--green-softer);
       color: var(--text);
       font: inherit;
     }
@@ -433,11 +482,11 @@
       border-radius: 24px;
       background: var(--white);
       color: var(--text);
-      box-shadow: 0 25px 80px rgba(13, 81, 49, 0.25);
+      box-shadow: 0 25px 80px rgba(4, 58, 28, 0.3);
     }
 
     .detail-dialog::backdrop {
-      background: rgba(8, 35, 21, 0.65);
+      background: rgba(4, 58, 28, 0.7);
       backdrop-filter: blur(5px);
     }
 
@@ -486,7 +535,7 @@
       padding: 20px;
       border: 1px solid var(--border);
       border-radius: 14px;
-      background: var(--background);
+      background: var(--green-softer);
     }
 
     .detail-block h3 {
@@ -531,25 +580,31 @@
     }
 
     /* Tablet and mobile */
+    @media (max-width: 900px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .top-nav {
+        justify-content: center;
+      }
+    }
+
     @media (max-width: 800px) {
       #home {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 40px;
-        padding-top: 55px;
+        gap: 35px;
+        padding-top: 45px;
       }
 
-      .hero-text p {
-        margin-left: auto;
-        margin-right: auto;
+      .profile-area {
+        order: 1;
       }
 
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .profile-picture {
-        width: min(100%, 290px);
+      .hero-text {
+        order: 2;
       }
 
       .about-grid,
@@ -561,7 +616,7 @@
 
     @media (max-width: 480px) {
       .header-inner {
-        padding: 18px 75px 18px 18px;
+        padding: 14px 70px 14px 16px;
       }
 
       main {
@@ -625,11 +680,18 @@
   <header>
     <div class="header-inner">
       <a href="#home" class="logo">JHON MICHAEL REGASPI</a>
+
+      <nav class="top-nav" aria-label="Primary navigation">
+        <a href="#home" class="top-link active">Home</a>
+        <a href="#about" class="top-link">About</a>
+        <a href="#projects" class="top-link">Projects &amp; Certificates</a>
+        <a href="#contact" class="top-link">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Four navigation icons on the right -->
-  <nav class="side-nav" aria-label="Main navigation">
+  <!-- Right-side navigation -->
+  <nav class="side-nav" aria-label="Section navigation">
     <a
       href="#home"
       class="nav-icon active"
@@ -678,34 +740,37 @@
   <main>
     <!-- Home -->
     <section id="home" aria-labelledby="home-title">
-      <div class="hero-text">
-        <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
-
-        <h1 id="home-title">
-          Hi, I’m<br />
-          <span>Jhon Michael Regaspi</span>
-        </h1>
-
-        <h2>Web Developer &amp; Designer</h2>
-
-        <p>
-          I build clean, responsive, and user-friendly websites.
-          Explore my projects, discover my skills, and get in touch.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="#projects" class="btn">View Projects</a>
-          <a href="#contact" class="btn btn-outline">Contact Me</a>
-        </div>
-      </div>
-
-      <!-- Profile picture without a frame -->
       <div class="profile-area">
         <img
           class="profile-picture"
           src="https://scontent-mnl1-1.xx.fbcdn.net/v/t1.15752-9/893020486_2230972594129946_4987851107272427151_n.png?stp=dst-png_p480x480&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFoPjL-tXFfGLZSoyuvFDvqFfri4eaT9MYV-uLh5pP0xhRnYYQqoKXBVGdMPkd6uqGfy7alcSxq1_ZVZ-2vl0M2&_nc_ohc=nhNk36ejODMQ7kNvwGvOADv&_nc_oc=AdoQ8xAe7Xk1vt05Ap476nYZgScPC-LRo-lTG_1ym46mTQJnkORUx_CtjCqI_kz1fAA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mnl1-1.xx&_nc_ss=7a22e&oh=03_Q7cD6wFfBUfBu2soc9E_Plk3cflMoJ5kARX5Mv6HnhvIZROISA&oe=6B17166F"
           alt="Profile photo of Jhon Michael Regaspi"
         />
+      </div>
+
+      <div class="hero-text">
+        <p class="eyebrow">COMPUTER SCIENCE STUDENT | WEB DEVELOPER</p>
+
+        <h1 id="home-title">
+          Building Practical <span>Digital Solutions</span>
+        </h1>
+
+        <h2>Jhon Michael Regaspi</h2>
+
+        <p>
+          A Computer Science student and working student from Bacoor City,
+          Cavite, with a strong interest in coding, technology, and
+          problem-solving. I enjoy learning how software works, creating
+          simple digital projects, and improving my skills through hands-on
+          practice. Outside academics, I enjoy gaming, which continues to
+          develop my creativity, focus, and interest in interactive
+          technology.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
       </div>
     </section>
 
@@ -714,7 +779,8 @@
       <h2 class="section-title" id="about-title">About Me</h2>
 
       <p class="section-subtitle">
-        A little introduction to my interests and the tools I use.
+        A Computer Science student developing technical skills through
+        academics, work experience, and personal interests.
       </p>
 
       <div class="about-grid">
@@ -722,28 +788,43 @@
           <h3>Who I Am</h3>
 
           <p>
-            I’m Jhon Michael Regaspi, based in Bacoor, Cavite,
-            Philippines. I enjoy creating websites and turning
-            ideas into useful digital experiences.
+            I am Jhon Michael Regaspi, a Computer Science student and working
+            student based in Bacoor City, Cavite. I am interested in coding,
+            technology, and creating useful digital solutions. I continue to
+            develop my skills through school activities, hands-on practice,
+            and self-directed learning.
           </p>
 
           <p>
-            I’m continuously learning and exploring ways to improve
-            my design and development skills.
+            As a working student, I value responsibility, time management,
+            and continuous improvement. Outside of academics and work, I
+            enjoy gaming, which strengthens my creativity, focus, and
+            interest in how interactive digital experiences are designed.
           </p>
         </div>
 
         <div class="panel">
-          <h3>My Skills</h3>
-          <p>Technologies and tools featured in my portfolio:</p>
+          <h3>Skills &amp; Interests</h3>
+          <p>
+            My skills and interests include computing, culinary work, and
+            gaming. I am building a foundation in web development while
+            developing practical skills that support teamwork, service, and
+            problem-solving.
+          </p>
 
           <div class="skills">
             <span class="skill">HTML</span>
             <span class="skill">CSS</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">Responsive Design</span>
-            <span class="skill">Git &amp; GitHub</span>
-            <span class="skill">UI/UX Basics</span>
+            <span class="skill">JavaScript Basics</span>
+            <span class="skill">Computer Fundamentals</span>
+            <span class="skill">Problem Solving</span>
+            <span class="skill">Arduino Basics</span>
+            <span class="skill">Culinary Skills</span>
+            <span class="skill">Food Preparation</span>
+            <span class="skill">Customer Service</span>
+            <span class="skill">Gaming &amp; Esports</span>
+            <span class="skill">Teamwork</span>
+            <span class="skill">Time Management</span>
           </div>
         </div>
       </div>
@@ -756,24 +837,23 @@
       </h2>
 
       <p class="section-subtitle">
-        Select a card to explore the project or learn more about a
-        certificate. Placeholder entries can be replaced with my
-        actual work and achievements.
+        Select a card to learn more about my project and work immersion
+        experience.
       </p>
 
       <div class="cards">
         <button
           type="button"
           class="card detail-card"
-          data-detail="portfolio"
+          data-detail="electipid"
           aria-haspopup="dialog"
           aria-controls="detailDialog"
         >
           <span class="tag">Project</span>
-          <h3>Personal Portfolio</h3>
+          <h3>ELECTIPID</h3>
           <p>
-            My personal website featuring a green-and-white design,
-            profile picture, and right-side navigation.
+            Smart Electricity Conservation System using an Arduino-based
+            system to monitor and help reduce unnecessary electricity use.
           </p>
           <span class="card-action">Explore project &rarr;</span>
         </button>
@@ -781,47 +861,15 @@
         <button
           type="button"
           class="card detail-card"
-          data-detail="landing"
+          data-detail="workImmersion"
           aria-haspopup="dialog"
           aria-controls="detailDialog"
         >
-          <span class="tag">Project placeholder</span>
-          <h3>Responsive Landing Page</h3>
+          <span class="tag">Certificate</span>
+          <h3>Work Immersion – ICT</h3>
           <p>
-            A space to showcase a landing-page project and explain
-            its purpose, design, and development.
-          </p>
-          <span class="card-action">Explore project &rarr;</span>
-        </button>
-
-        <button
-          type="button"
-          class="card detail-card"
-          data-detail="webCertificate"
-          aria-haspopup="dialog"
-          aria-controls="detailDialog"
-        >
-          <span class="tag">Certificate placeholder</span>
-          <h3>Web Development</h3>
-          <p>
-            A dedicated space for a web development certificate,
-            course details, and learning outcomes.
-          </p>
-          <span class="card-action">View details &rarr;</span>
-        </button>
-
-        <button
-          type="button"
-          class="card detail-card"
-          data-detail="designCertificate"
-          aria-haspopup="dialog"
-          aria-controls="detailDialog"
-        >
-          <span class="tag">Certificate placeholder</span>
-          <h3>Design &amp; Technology</h3>
-          <p>
-            A dedicated space for a design certificate and the
-            skills covered during the course.
+            Work Immersion experience in the ICT department of a barangay
+            office, focused on computer-related tasks and public service.
           </p>
           <span class="card-action">View details &rarr;</span>
         </button>
@@ -833,22 +881,66 @@
       <h2 class="section-title" id="contact-title">Contact Me</h2>
 
       <p class="section-subtitle">
-        Have a project in mind or want to connect? Get in touch.
+        Feel free to reach out for collaboration, school-related inquiries,
+        project opportunities, or professional connections.
       </p>
 
       <div class="contact-grid">
         <div class="panel contact-info">
           <h3>Contact Information</h3>
 
-          <!-- Replace these placeholders before publishing. -->
           <p>
             Email:
-            <a href="mailto:you@example.com">you@example.com</a>
+            <a href="mailto:regaspijm200228@gmail.com">
+              regaspijm200228@gmail.com
+            </a>
+            <br />
+            Best for school inquiries, project collaboration, and
+            professional messages.
           </p>
-          <p>Phone: Add your phone number</p>
-          <p>Location: Bacoor, Cavite, Philippines</p>
-          <p>GitHub: Add your GitHub profile</p>
-          <p>LinkedIn: Add your LinkedIn profile</p>
+
+          <p>
+            Phone:
+            <a href="tel:+639636003648">09636003648</a>
+            <br />
+            Available for calls or text messages regarding opportunities and
+            inquiries.
+          </p>
+
+          <p>
+            Location: Bacoor City, Cavite, Philippines
+            <br />
+            Open to online collaboration and local opportunities within
+            Cavite and nearby areas.
+          </p>
+
+          <p>
+            GitHub:
+            <a
+              href="https://github.com/regaspi200228-beep"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              regaspi200228-beep
+            </a>
+            <br />
+            Visit my GitHub profile to view my coding projects and future
+            repositories.
+          </p>
+
+          <p>
+            LinkedIn:
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              JHON MICHAEL REGASPI
+            </a>
+            <br />
+            Connect with me for academic, technical, and professional
+            opportunities.
+          </p>
         </div>
 
         <form id="contactForm">
@@ -905,7 +997,7 @@
     </p>
   </footer>
 
-  <!-- Each card opens this window with its own content. -->
+  <!-- Detail popup -->
   <dialog
     id="detailDialog"
     class="detail-dialog"
@@ -917,7 +1009,6 @@
         class="dialog-close"
         id="closeDetail"
         aria-label="Close details"
-        autofocus
       >
         &times;
       </button>
@@ -959,6 +1050,7 @@
     // Highlight the current section in the right-side navigation.
     const sections = document.querySelectorAll("main section[id]");
     const navLinks = document.querySelectorAll(".side-nav a");
+    const topLinks = document.querySelectorAll(".top-nav a");
     let updatePending = false;
 
     function updateActiveLink() {
@@ -987,6 +1079,11 @@
         } else {
           link.removeAttribute("aria-current");
         }
+      });
+
+      topLinks.forEach((link) => {
+        const active = link.getAttribute("href") === "#" + current;
+        link.classList.toggle("active", active);
       });
 
       updatePending = false;
@@ -1020,97 +1117,52 @@
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
-    // Edit each entry to customize its detail window.
-    // Add a real project or certificate link to its url field.
+    // Project and certificate details
     const detailContent = {
-      portfolio: {
+      electipid: {
         category: "Project",
-        title: "Personal Portfolio Website",
+        title: "ELECTIPID: Smart Electricity Conservation System",
         intro:
-          "A personal space to introduce myself, present my work, and share contact information.",
+          "An Arduino-based system designed to promote responsible electricity use and help reduce unnecessary energy consumption.",
         overview:
-          "This portfolio uses a green-and-white theme with a frameless profile picture and four navigation icons on the right. Visitors can explore the home, about, projects, and contact sections.",
-        listHeading: "Features",
+          "ELECTIPID is a smart electricity conservation system that uses Arduino-based components to monitor electricity usage and encourage energy-saving habits. The project aims to help users become more aware of their consumption and reduce wasted electricity through practical monitoring and automated features.",
+        listHeading: "Project Features",
         items: [
-          "Responsive layouts for smaller and larger screens.",
-          "A frameless profile picture on the home page.",
-          "Right-side navigation with active-section highlighting.",
-          "Clickable project and certificate cards with additional context.",
-          "A contact-form layout that is currently a demo."
+          "Arduino-based system for electricity monitoring and control.",
+          "Designed to detect and help reduce unnecessary electricity consumption.",
+          "Promotes energy-saving habits through real-time monitoring.",
+          "Uses sensors and electronic components to support smart conservation.",
+          "Intended to help households or small spaces manage electricity use more responsibly."
         ],
-        metaHeading: "Technologies used",
-        meta: "HTML, CSS, and JavaScript.",
-        note:
-          "Add a published website or repository URL when it is ready.",
-        url: "",
-        linkLabel: "View live portfolio"
-      },
-
-      landing: {
-        category: "Project placeholder",
-        title: "Responsive Landing Page",
-        intro:
-          "Replace this example with a landing-page project you have actually created.",
-        overview:
-          "Describe who the page was designed for, what problem it solves, and the action you want visitors to take. Explain your role in designing and building the page.",
-        listHeading: "Details to include",
-        items: [
-          "The purpose and intended audience of the website.",
-          "The main sections and features you built.",
-          "How you adapted the layout for mobile screens.",
-          "A design or coding challenge and how you solved it."
-        ],
-        metaHeading: "Tools and technologies",
+        metaHeading: "Technologies Used",
         meta:
-          "Replace this text with the languages, frameworks, and design tools you used.",
+          "Arduino, sensors, electronic components, and basic programming for automation and monitoring.",
         note:
-          "This is an example entry, not a claim of completed work. Add your actual project details.",
+          "Add photos, a project video, circuit diagram, or GitHub repository link when available.",
         url: "",
         linkLabel: "View project"
       },
 
-      webCertificate: {
-        category: "Certificate placeholder",
-        title: "Web Development Certificate",
+      workImmersion: {
+        category: "Certificate",
+        title: "Work Immersion – ICT in Barangay Office",
         intro:
-          "Use this space to provide context for a web development certificate you have earned.",
+          "Work Immersion experience focused on Information and Communications Technology tasks in a barangay office setting.",
         overview:
-          "Add the exact course title and explain what the training covered. Describe how you applied the lessons in exercises or projects.",
-        listHeading: "Learning outcomes to describe",
+          "Completed Work Immersion in the ICT department of a barangay office. The experience provided exposure to computer-related tasks, office documentation, and the use of technology in supporting community services and barangay operations.",
+        listHeading: "Experience and Learning",
         items: [
-          "The course or training provider and completion date.",
-          "The main web development topics covered.",
-          "Projects, exercises, or skills you practiced.",
-          "How the certificate supports your current abilities."
+          "Assisted with ICT-related tasks in a barangay office.",
+          "Gained exposure to computer operations and office documentation.",
+          "Developed basic workplace communication and professionalism.",
+          "Learned the importance of accuracy, organization, and confidentiality.",
+          "Observed how technology supports community services and barangay operations."
         ],
-        metaHeading: "Certificate details",
+        metaHeading: "Certificate Details",
         meta:
-          "Add the issuing organization, course title, completion date, and credential ID if available.",
+          "Work Immersion – ICT in Barangay Office. Add the school, barangay office name, supervisor, dates, and certificate number if available.",
         note:
-          "This is an example entry, not a claim of completed work. Add your actual certificate details.",
-        url: "",
-        linkLabel: "View certificate"
-      },
-
-      designCertificate: {
-        category: "Certificate placeholder",
-        title: "Design & Technology Certificate",
-        intro:
-          "Use this space to provide context for a design or technology certificate you have earned.",
-        overview:
-          "Add the exact course title and explain the design concepts, tools, or technologies covered during the training.",
-        listHeading: "Learning outcomes to describe",
-        items: [
-          "The course or training provider and completion date.",
-          "The design tools or technologies you learned.",
-          "The design principles or technical skills covered.",
-          "How you applied what you learned in a project."
-        ],
-        metaHeading: "Certificate details",
-        meta:
-          "Add the issuing organization, course title, completion date, and credential ID if available.",
-        note:
-          "This is an example entry, not a claim of completed work. Add your actual certificate details.",
+          "Add a scanned certificate, recommendation letter, or supervisor contact information if available.",
         url: "",
         linkLabel: "View certificate"
       }
